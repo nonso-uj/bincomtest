@@ -15,40 +15,40 @@ ALLOWED_HOSTS = [
 ]
 
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
-]
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, 'static'),
+# ]
 
 
-DEBUG_PROPAGATE_EXCEPTIONS = True
+# DEBUG_PROPAGATE_EXCEPTIONS = True
 
 # Heroku Logging
 
-LOGGING = {
-    'version': 1,
-    'dissable_existing_loggers': False,
-    'formatters': {
-        'verbose': {
-            'format': "[%(asctime)s] %(levelname)s [%(name)s:%(lineo)s] %(message)s",
-            'datefmt': "%d/%b/%Y %H:%M:%S"
-        },
-        'simple': {
-            'format': '%(levelname)s %(message)s'
-        },
-    },
-    'handlers': {
-        'console': {
-            'level': 'DEBUG',
-            'class': 'logging-StreamHandler',
-        },
-    },
-    'loggers': {
-        'MYAPP': {
-            'handlers': ['console'],
-            'level': 'DEBUG',
-        },
-    }
-}
+# LOGGING = {
+#     'version': 1,
+#     'dissable_existing_loggers': False,
+#     'formatters': {
+#         'verbose': {
+#             'format': "[%(asctime)s] %(levelname)s [%(name)s:%(lineo)s] %(message)s",
+#             'datefmt': "%d/%b/%Y %H:%M:%S"
+#         },
+#         'simple': {
+#             'format': '%(levelname)s %(message)s'
+#         },
+#     },
+#     'handlers': {
+#         'console': {
+#             'level': 'DEBUG',
+#             'class': 'logging-StreamHandler',
+#         },
+#     },
+#     'loggers': {
+#         'MYAPP': {
+#             'handlers': ['console'],
+#             'level': 'DEBUG',
+#         },
+#     }
+# }
 
 
 
