@@ -1,1 +1,1 @@
-web: python manage.py migrate && gunicorn studybud.wsgi
+web: python manage.py migrate && gunicorn votes.wsgi
