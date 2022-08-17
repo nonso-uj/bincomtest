@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<div class="text-center">
+    <h2>All Wards</h2>
+</div>
+
+<br>
+
+<div class="table-responsive mx-5">
+    <table class="table">
+        <thead class="table-light">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">ward_name</th>
+                <th scope="col">ward_description</th>
+                <th scope="col">entered_by_user</th>
+                <th scope="col">date_entered</th>
+                <th scope="col">user_ip_address</th>
+                <th scope="col">View Polling Units</th>
+              </tr>
+            </thead>
+        <tbody>
+            {% for ward in wards %}
+            <tr>
+            <th scope="row">{{forloop.counter}}</th>
+            <td>{{ ward.ward_name }}</td>
+            <td>{{ ward.ward_description }}</td>
+            <td>{{ ward.entered_by_user }}</td>
+            <td>{{ ward.date_entered }}</td>
+            <td>{{ ward.user_ip_address }}</td>
+            <td><a href="{% url 'polls' ward.ward_id %}"><button>View Polling Units</button></a></td>
+            {% endfor %}
+            </tr>
+        </tbody>
+    </table>
+  </div>
+
+{% endblock %}

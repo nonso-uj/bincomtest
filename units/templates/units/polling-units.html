@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<h2>All Polling Units</h2>
+<br>
+
+
+<div class="table-responsive mx-5">
+    <table class="table">
+        <thead class="table-light">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">polling_unit_name</th>
+                <th scope="col">polling_unit_number</th>
+                <th scope="col">polling_unit_description</th>
+                <th scope="col">lat</th>
+                <th scope="col">long</th>
+                <th scope="col">entered_by_user</th>
+                <th scope="col">date_entered</th>
+                <th scope="col">user_ip_address</th>
+                <th scope="col">View Wards</th>
+              </tr>
+            </thead>
+        <tbody>
+            {% for poll in polls %}
+            <tr>
+            <th scope="row">{{forloop.counter}}</th>
+            <td>{{ poll.polling_unit_name }}</td>
+            <td>{{ poll.polling_unit_number }}</td>
+            <td>{{ poll.polling_unit_description }}</td>
+            <td>{{ poll.lat }}</td>
+            <td>{{ poll.long }}</td>
+            <td>{{ poll.entered_by_user }}</td>
+            <td>{{ poll.date_entered }}</td>
+            <td>{{ poll.user_ip_address }}</td>
+            <td><a href="{% url 'poll-results' poll.polling_unit_id %}"><button>View Results</button></a></td>
+            {% endfor %}
+            </tr>
+        </tbody>
+    </table>
+  </div>
+
+{% endblock %}

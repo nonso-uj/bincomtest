@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<h2>States</h2>
+<br>
+{% for state in states %}
+
+<h4>{{ state.state_name }}</h4>
+
+<a href="{% url 'lga' state.state_id %}"><button>View LGAs</button></a>
+
+{% endfor %}
+
+{% endblock %}

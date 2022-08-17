@@ -1,0 +1,24 @@
+/* form > input {
+    resize: none;
+    background-color: #696d97;
+    color: #e5e5e5;
+    border: none;
+    outline: none;
+    border-radius: 0.7rem;
+    height: 4.5rem;
+    width: 100%;
+    margin-top: -1rem;
+    padding: 1.2rem;
+    font-size: 1.4rem;
+    font-weight: 500;
+    position: relative;
+  }
+  
+form > input::placeholder {
+    color: #b2bdbd;
+  } */
+
+
+ul{
+  list-style: none;
+}

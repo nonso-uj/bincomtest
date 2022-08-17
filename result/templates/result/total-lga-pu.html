@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div class="text-center">
+    <h2>Total Under Lgas Under {{ state.state_name }} State</h2>
+    <h3>State ID: {{state.state_id}}</h3>
+</div>
+
+<br>
+
+<div class="container login-container">
+    <div class="row justify-content-center">
+      <div class="col-lg-10 col-md-12 align-item-center">
+<div>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <div class="form-group mb-3">
+            <label class="form-label" for="result">Select LGA:</label>
+
+            <select class="form-control" name="lga" id="lga" required>
+
+                <option selected='true' disabled>Choose Lga</option>
+
+                {% for lga in lgas %}
+
+                <option value="{{lga.lga_id}}">{{lga.lga_name}}</option>
+
+                {% endfor %}
+            </select>
+        </div>
+        
+
+        <input type="submit" value="Get Results">
+    </form>
+</div>
+</div>
+</div>
+</div>
+
+<br>
+
+{% if current != '' %}
+
+    <div class="text-center">
+        <h2>Polling Units Results under {{current.lga_name}} </h2>
+    <h5>lga_id: {{current.lga_id}}</h5>
+
+    <h3>Overall Total: {{total.total}} </h3>
+    </div>
+    
+
+
+    <div class="table-responsive mx-5">
+        <table class="table">
+            <thead class="table-light">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">party_abbreviation</th>
+                    <th scope="col">party_score__sum</th>
+                  </tr>
+                </thead>
+            <tbody>
+                {% for party in parties %}
+                <tr>
+                <th scope="row">{{forloop.counter}}</th>
+                <td>{{party.party_abbreviation}}</td>
+                <td>{{party.party_score__sum}}</td>
+                {% endfor %}
+                </tr>
+            </tbody>
+        </table>
+      </div>
+
+{% endif %}
+
+{% endblock %}

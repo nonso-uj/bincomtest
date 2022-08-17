@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div class="text-center">
+    <h2>All Lgas Under {{ state.state_name }} State</h2>
+<h3>State ID: {{state.state_id}}</h3>
+</div>
+
+<br>
+
+<div class="container login-container">
+    <div class="row justify-content-center">
+      <div class="col-lg-10 col-md-12 align-item-center">
+<div>
+    <form action="{% url 'direct-results' %}" method="POST">
+        {% csrf_token %}
+        <label class="form-label" for="result">Get Polling Unit Result Quickly If You Have The Polling Unit UniqueID:</label>
+
+        <input class="form-control" type="text" name="result" required placeholder="Add Polling Unit UniqueID">
+
+        <input type="submit" value="Get Results">
+    </form>
+</div>
+</div>
+</div>
+</div>
+
+<br>
+
+
+<div class="table-responsive mx-5">
+    <table class="table">
+        <thead class="table-light">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">lga_name</th>
+                <th scope="col">lga_id</th>
+                <th scope="col">lga_description</th>
+                <th scope="col">entered_by_user</th>
+                <th scope="col">date_entered</th>
+                <th scope="col">user_ip_address</th>
+                <th scope="col">View Wards</th>
+              </tr>
+            </thead>
+        <tbody>
+            {% for lga in lgas %}
+            <tr>
+            <th scope="row">{{forloop.counter}}</th>
+            <td>{{ lga.lga_name }}</td>
+            <td>{{ lga.lga_id }}</td>
+            <td>{{ lga.lga_description }}</td>
+            <td>{{ lga.entered_by_user }}</td>
+            <td>{{ lga.date_entered }}</td>
+            <td>{{ lga.user_ip_address }}</td>
+            <td><a href="{% url 'ward' lga.lga_id %}"><button>View Wards</button></a></td>
+            {% endfor %}
+            </tr>
+        </tbody>
+    </table>
+  </div>
+
+{% endblock %}

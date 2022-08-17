@@ -1,0 +1,42 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Django Polls App</title>
+
+</head>
+<body>
+    <nav>
+        <ul class="text-center lean">
+            <a href="{% url 'lga' %}">
+                <li class="my-2">Question 1: Home</li>
+            </a>
+            <a href="{% url 'total-lga' %}">
+                <li class="my-2">Qestion 2: Total Lga counts</li>
+            </a>
+            <a href="{% url 'new-result' %}">
+                <li class="my-2">Qestion 3: Add New Result</li>
+            </a>
+            <a href="{{ request.META.HTTP_REFERER }}">
+                <li class="my-2">Back</li>
+            </a>
+        </ul>
+    </nav>
+    <small class="text-center">Please Excuse styling, A work in progress...</small>
+    {% block content %}
+        
+    {% endblock %}
+
+
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>

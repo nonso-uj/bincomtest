@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<h2 class="text-center">Polling Unit Results</h2>
+<br>
+
+<div class="table-responsive mx-5">
+    <table class="table">
+        <thead class="table-light">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">polling_unit_uniqueid</th>
+                <th scope="col">party_abbreviation</th>
+                <th scope="col">party_score</th>
+                <th scope="col">entered_by_user</th>
+                <th scope="col">date_entered</th>
+                <th scope="col">user_ip_address</th>
+              </tr>
+            </thead>
+        <tbody>
+            {% for result in results %}
+            <tr>
+            <th scope="row">{{forloop.counter}}</th>
+            <td>{{ result.polling_unit_uniqueid }}</td>
+            <td>{{ result.party_abbreviation }}</td>
+            <td>{{ result.party_score }}</td>
+            <td>{{ result.entered_by_user }}</td>
+            <td>{{ result.date_entered }}</td>
+            <td>{{ result.user_ip_address }}</td>
+            {% endfor %}
+            </tr>
+        </tbody>
+    </table>
+  </div>
+
+
+{% endblock %}
