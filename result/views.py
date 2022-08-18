@@ -85,16 +85,12 @@ def total_lga_pu(request):
         current = request.POST.get('lga')
 
         polls = PollingUnit.objects.filter(lga_id=current)
-        print(polls)
 
         results = AnnouncedPuResults.objects.filter(polling_unit_uniqueid__in=polls)
-        print(results)
 
         parties = results.values('party_abbreviation').annotate(Sum('party_score')).order_by('party_abbreviation')
-        print(parties)
 
         total = results.aggregate(total=Sum('party_score'))
-        print(total)
 
         current = lgas.get(lga_id=current)
 
@@ -105,6 +101,4 @@ def total_lga_pu(request):
         'parties': parties,
         'current': current
     }
-    for field in context.values():
-        print(field)
     return render(request, 'result/total-lga-pu.html', context)
