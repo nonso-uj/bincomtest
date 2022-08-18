@@ -1,5 +1,3 @@
-import django_on_heroku
-
 from .base import *
 
 
@@ -65,5 +63,3 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
 ]
-
-# django_on_heroku.settings(locals())
