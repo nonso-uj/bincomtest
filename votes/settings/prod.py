@@ -9,7 +9,7 @@ DEBUG = False
 
 ALLOWED_HOSTS = [
     # change
-    'bincom-poll-app.herokuapp.com',
+    'bincom-poll-app.onrender.com',
 ]
 
 
