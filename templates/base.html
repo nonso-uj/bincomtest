@@ -13,29 +13,34 @@
 
 </head>
 <body>
-    <nav>
-        <ul class="text-center lean">
-            <a href="{% url 'lga' %}">
-                <li class="my-2">Question 1: Home</li>
-            </a>
-            <a href="{% url 'total-lga' %}">
-                <li class="my-2">Qestion 2: Total Lga counts</li>
-            </a>
-            <a href="{% url 'new-result' %}">
-                <li class="my-2">Qestion 3: Add New Result</li>
-            </a>
-            <a href="{{ request.META.HTTP_REFERER }}">
-                <li class="my-2">Back</li>
-            </a>
-        </ul>
-    </nav>
-    <small class="text-center">Please Excuse styling, A work in progress...</small><br>
-    <small class="text-center">Note that the data provided for this test was not complete hence some empty results</small>
-    {% block content %}
+
+    <div class="container">
+
+        <nav>
+            <ul class="text-center lean">
+                <a href="{% url 'lga' %}">
+                    <li class="my-2">Question 1: Home</li>
+                </a>
+                <a href="{% url 'total-lga' %}">
+                    <li class="my-2">Qestion 2: Total Lga counts</li>
+                </a>
+                <a href="{% url 'new-result' %}">
+                    <li class="my-2">Qestion 3: Add New Result</li>
+                </a>
+                <a href="{{ request.META.HTTP_REFERER }}">
+                    <li class="my-2">Back</li>
+                </a>
+            </ul>
+        </nav>
+        <small class="text-center">Please Excuse styling, A work in progress...</small><br>
+        <small class="text-center">Note that the data provided for this test was not complete hence some empty results</small>
         
-    {% endblock %}
-
-
+        {% block content %}
+        
+        {% endblock %}
+    
+    </div>
+    
     <script src="{% static 'js/jquery.js' %}"></script>
     <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
     <script src="{% static 'js/main.js' %}"></script>
